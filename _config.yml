@@ -1,0 +1,34 @@
+# ------------------------------------------------------------------
+#  Coho Group Finance Portal - site settings
+#  Edit the values below, then commit. The site rebuilds in ~1 minute.
+#  Request types, form links and checklists live in _data/finance.yml
+# ------------------------------------------------------------------
+
+title: "Finance Portal"
+tagline: "One place for finance requests: expenses, suppliers, purchase orders and payroll"
+org: "Coho Group"
+
+# Who staff can contact (shown in the footer)
+contact_name: "the Finance team"
+contact_email: ""          # e.g. "finance@cohogroup.com.au"
+
+# Link to the IT portal in the menu (leave blank to hide it)
+it_portal_url: "https://kimberley-coho-yolo.github.io/coho-news/it-support/"
+
+# Keep the site out of Google and other search engines
+hide_from_search: true
+
+# The site lives at https://kimberley-coho-yolo.github.io/coho-finance-portal/
+# If you move it to a custom address or an <name>.github.io repository, set this to ""
+baseurl: "/coho-finance-portal"
+
+# ---- Technical settings: no need to change below this line ----
+timezone: Australia/Brisbane
+markdown: kramdown
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+exclude:
+  - README.md
