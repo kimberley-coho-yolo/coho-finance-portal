@@ -1,0 +1,112 @@
+# ==================================================================
+#  FINANCE PORTAL: REQUEST TYPES
+#  This file controls everything on the Finance requests page.
+#  Edit the words here and commit. You don't need to touch the page itself.
+#
+#  Tips:
+#  - Keep the spaces at the start of each line exactly as they are.
+#  - Put text in "double quotes" if it contains a colon (:) or #.
+#  - To add a request type, copy a whole block starting with "- id:" and
+#    give it a new id (lowercase, dashes, no spaces).
+#
+#  Fields for each request type:
+#  title:      what staff click on
+#  summary:    one line under the title
+#  examples:   short examples so people pick the right one
+#  notice:     optional highlighted note
+#  sign_in:    true if the form only accepts Coho work accounts
+#  have_ready: what to gather before opening the form
+#  form_asks:  the questions the form asks (keep in step with the Microsoft Form)
+#  form_url:   the form's "Collect responses > Copy link" address.
+#              NEVER paste a link containing "Token=" (that is an edit link).
+#              Leave blank until the form exists; the page shows the email instead.
+#  forms:      optional list of forms to fill in order, used instead of form_url
+#              (see the IT portal's new-starter example)
+# ==================================================================
+
+# Shown in the box at the top of the page.
+urgent_phone: ""            # e.g. "07 3870 0849"
+urgent_email: ""            # e.g. "finance@cohogroup.com.au"
+
+categories:
+
+  - id: expenses
+    title: "Expense claim or reimbursement"
+    summary: "Claim back money you've spent on work costs."
+    examples: "Fuel, accommodation, meals while travelling, small items bought for a job"
+    form_url: ""
+    sign_in: true
+    have_ready:
+      - "A receipt or tax invoice for every item (photo or PDF)"
+      - "The date, amount and what each expense was for"
+      - "The cost centre or job number"
+      - "The name of the manager approving the claim"
+    form_asks:
+      - q: "Your name and department"
+      - q: "Date of the expense"
+      - q: "What was it for?"
+      - q: "Amount (including GST)"
+      - q: "Cost centre or job number"
+      - q: "Approving manager"
+      - q: "Upload your receipts"
+
+  - id: supplier
+    title: "New supplier or change of bank details"
+    summary: "Set up a new supplier, or update an existing supplier's details."
+    examples: "New subcontractor, a supplier has changed bank, new contact person"
+    notice: "Bank detail changes are a common scam. Finance will always phone the supplier on a number we already hold before making any change. Never act on bank details sent by email alone, and don't type bank details into the form."
+    form_url: ""
+    sign_in: true
+    have_ready:
+      - "The supplier's legal name and ABN"
+      - "A contact name, phone number and email at the supplier"
+      - "What we're buying from them, and who at Coho uses them"
+      - "For a bank change: the request you received, to attach to the form"
+    form_asks:
+      - q: "What do you need?"
+        options: "New supplier · Change of bank details · Change of other details"
+      - q: "Supplier name and ABN"
+      - q: "Supplier contact name, phone and email"
+      - q: "What are we buying from them?"
+      - q: "Your name and department"
+      - q: "Attach the supplier's form, invoice or change request"
+
+  - id: purchase-order
+    title: "Purchase order request"
+    summary: "Raise a purchase order before you buy, so the invoice can be paid."
+    examples: "Equipment, materials, services, subscriptions"
+    form_url: ""
+    sign_in: true
+    have_ready:
+      - "The supplier's name"
+      - "What you're buying, and the quote if you have one"
+      - "The cost centre or job number"
+      - "The approving manager, and the date you need it by"
+    form_asks:
+      - q: "Your name and department"
+      - q: "Supplier"
+      - q: "What are you buying?"
+      - q: "Amount (including GST)"
+      - q: "Upload the quote"
+      - q: "Cost centre or job number"
+      - q: "Approving manager"
+      - q: "Date needed by"
+
+  - id: payroll
+    title: "Payroll or pay query"
+    summary: "Questions about your pay, payslip, leave, super or tax."
+    examples: "Payslip looks wrong, leave balance, super, tax, change of address"
+    notice: "Payroll details are private, so this form only accepts Coho work accounts. If you don't have one, call Finance. To change the bank account your pay goes to, Finance will confirm with you by phone."
+    form_url: ""
+    sign_in: true
+    have_ready:
+      - "The pay date or pay period you're asking about"
+      - "Your payslip, if the question is about an amount"
+      - "A short description of what looks wrong or what you need"
+    form_asks:
+      - q: "Your name and employee ID (if you know it)"
+      - q: "What's it about?"
+        options: "Pay amount or payslip · Leave balance · Super · Tax · Change of personal details · Change of bank account · Other"
+      - q: "Pay date or pay period"
+      - q: "Describe your question"
+      - q: "Best phone number to reach you"

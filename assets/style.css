@@ -1,0 +1,310 @@
+/* ==================================================================
+   Coho Group Technology News
+   Styled to Coho Group Brand Guidelines v1.0 (November 2026)
+   - Arial is the only typeface
+   - Four brand colours only. No other reds (no #FF0000, no darker red hovers)
+   - About 60% white, 30% black, 10% red. Red is the accent, not the background
+   - Primary full-colour logo on white, at least 120px wide, with clear space
+   - Split bar (35% red, 65% black) at full width above the footer
+   ================================================================== */
+
+:root {
+  /* Brand palette (04 Colour) */
+  --coho-red:   #EC1B2D;
+  --coho-black: #141319;
+  --slate-grey: #6E6E6E;
+  --light-grey: #F2F2F2;
+  --white:      #FFFFFF;
+
+  /* Usage */
+  --text:   var(--coho-black);
+  --muted:  var(--slate-grey);
+  --panel:  var(--light-grey);
+  --line:   #DADADA;   /* neutral hairline, not a brand colour */
+  --radius: 4px;
+  --wrap:   52rem;
+
+  /* Typography (03), scaled from print pt to screen */
+  --font: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --h1: 2rem;        /* Heading 1: Arial Bold, Coho Red */
+  --h2: 1.4rem;      /* Heading 2: Arial Bold, near-black, red rule */
+  --h3: 0.95rem;     /* Heading 3: Arial Bold, red, caps, spaced */
+  --body: 1.0625rem; /* Body: Arial Regular, near-black */
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--body);
+  line-height: 1.6;
+}
+img { max-width: 100%; height: auto; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 16px; }
+
+/* Links: near-black text with a Coho Red underline.
+   (Red text on white is just under the contrast needed for body text.) */
+a {
+  color: var(--coho-black);
+  text-decoration: underline;
+  text-decoration-color: var(--coho-red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--coho-red); }
+a:focus-visible, .button:focus-visible, .card:focus-visible {
+  outline: 3px solid var(--coho-black);
+  outline-offset: 2px;
+}
+
+/* ---------- Headings (03 Typography) ---------- */
+h1, h2, h3 { font-family: var(--font); font-weight: 700; line-height: 1.25; }
+h1 { font-size: var(--h1); color: var(--coho-red); margin: 0 0 .4em; }
+h2 {
+  font-size: var(--h2); color: var(--coho-black);
+  margin: 1.8em 0 .6em; padding-bottom: .3em;
+  border-bottom: 2px solid var(--coho-red);
+  display: inline-block;            /* red rule sits under the words, like the guide */
+}
+h3 {
+  font-size: var(--h3); color: var(--coho-red);
+  text-transform: uppercase; letter-spacing: .18em;
+  margin: 1.6em 0 .4em;
+}
+
+/* ---------- Header: primary logo on white ---------- */
+.site-header { background: var(--white); }
+.header-inner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 16px; padding-top: 0; padding-bottom: 0;
+}
+.brand { display: flex; align-items: center; gap: 20px; text-decoration: none; color: var(--coho-black); }
+.brand:hover { color: var(--coho-black); }
+/* 02 Clear space & size: minimum 120px on screen; padding keeps the clear zone
+   (about the height of the "O" in COHO) free of text and edges */
+.brand .logo { width: 120px; min-width: 120px; height: auto; padding: 16px; box-sizing: content-box; margin: 0 0 0 -16px; }
+.brand-text { display: flex; flex-direction: column; font-weight: 700; font-size: 1.3rem; line-height: 1.2; }
+.brand-kicker {
+  font-size: .72rem; font-weight: 700; color: var(--coho-red);
+  text-transform: uppercase; letter-spacing: .22em; margin-bottom: 4px;
+}
+
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.nav a {
+  color: var(--coho-black); text-decoration: none; font-weight: 700;
+  padding: 8px 12px; border-radius: var(--radius); font-size: 1rem;
+}
+.nav a:hover { background: var(--light-grey); color: var(--coho-black); }
+.nav a[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--coho-red); border-radius: 0; }
+
+/* ---------- 05 Graphic device: the split bar ---------- */
+.split-bar {
+  width: 100%; height: 10px;
+  background: linear-gradient(to right, var(--coho-red) 0 35%, var(--coho-black) 35% 100%);
+}
+
+/* ---------- Layout ---------- */
+.main { padding-top: 36px; padding-bottom: 56px; }
+.hero h1 { font-size: clamp(1.75rem, 4vw, 2.3rem); }
+.hero p { font-size: 1.1rem; color: var(--muted); margin: 0 0 28px; }
+.section-title { margin-top: 40px; }
+
+/* ---------- Cards ---------- */
+.card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; transition: border-color .15s;
+}
+.card:hover { border-color: var(--coho-black); color: inherit; }
+.card h2, .card h3 {
+  color: var(--coho-black); text-transform: none; letter-spacing: 0;
+  border: 0; padding: 0; display: block; margin: 6px 0 2px;
+}
+.card h2 { font-size: 1.45rem; }
+.card h3 { font-size: 1.12rem; }
+.card p { margin: 6px 0 0; }
+.card-feature { background: var(--panel); border-color: var(--panel); border-left: 6px solid var(--coho-red); }
+.label {
+  display: block; font-size: .75rem; font-weight: 700; color: var(--coho-red);
+  text-transform: uppercase; letter-spacing: .18em;
+}
+.more { display: inline-block; margin-top: 10px; font-weight: 700; color: var(--coho-black); border-bottom: 2px solid var(--coho-red); }
+.post-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.tag {
+  display: inline-block; font-size: .75rem; font-weight: 700;
+  background: var(--coho-black); color: var(--white);
+  padding: 2px 9px; border-radius: var(--radius); margin-top: 4px;
+}
+.card-feature .tag { margin-top: 8px; }
+.meta { color: var(--muted); font-size: .9rem; }
+
+/* ---------- Article ---------- */
+.back { margin: 0 0 16px; font-size: .95rem; }
+.post-header h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 10px 0 4px; }
+.prose h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+.prose li { margin: 4px 0; }
+.prose blockquote {
+  margin: 1.2em 0; padding: 12px 16px;
+  border-left: 4px solid var(--coho-red); background: var(--panel);
+}
+.prose table {
+  width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: .95rem;
+  display: block; overflow-x: auto;
+}
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.prose th { background: var(--coho-black); color: var(--white); font-weight: 700; }
+.prose tbody tr:nth-child(even) td { background: var(--light-grey); }
+.narrow { max-width: 40rem; }
+
+/* ---------- Buttons and the Ask page ---------- */
+/* White on Coho Red passes contrast at large bold text, so buttons use 18.7px bold */
+.button, .nav a.nav-cta {
+  display: inline-block; background: var(--coho-red); color: var(--white);
+  text-decoration: none; font-weight: 700; font-size: 1.1rem;
+  padding: 10px 18px; border-radius: var(--radius);
+}
+.button:hover, .nav a.nav-cta:hover { background: var(--coho-black); color: var(--white); }
+.nav a.nav-cta[aria-current="page"] { box-shadow: none; border-radius: var(--radius); }
+.button-ghost { background: var(--white); color: var(--coho-black); border: 2px solid var(--coho-black); }
+.button-ghost:hover { background: var(--coho-black); color: var(--white); }
+
+.ask-box {
+  margin-top: 40px; padding: 20px; background: var(--panel);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+}
+.ask-box p { margin: 0; }
+.form-frame { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin: 16px 0; }
+.form-frame iframe { display: block; width: 100%; height: 900px; border: 0; }
+.notice { background: var(--panel); border-left: 6px solid var(--coho-red); padding: 16px 20px; max-width: 40rem; }
+.notice p { margin: 4px 0; }
+.center { text-align: center; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--white); padding: 20px 0 28px; font-size: .92rem; }
+.site-footer p { margin: 6px 0; }
+.muted { color: var(--muted); }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+  body { font-size: 1rem; }
+  .header-inner { padding-top: 0; padding-bottom: 0; }
+  .brand { gap: 12px; }
+  .brand-text { font-size: 1.1rem; }
+  .nav { width: 100%; border-top: 1px solid var(--line); padding-top: 8px; }
+  .nav a { padding: 8px 10px; }
+  .nav a.nav-cta { margin-left: auto; font-size: 1.1rem; }
+  .ask-box { flex-direction: column; align-items: flex-start; }
+}
+
+@media print {
+  .nav, .ask-box, .back { display: none; }
+  body { font-size: 10.5pt; }
+  h1 { font-size: 20pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+}
+
+/* ---------- FAQ (Ask page) ---------- */
+.faq { max-width: 44rem; margin-top: 28px; }
+.faq h3 { margin: 0 0 10px; }
+.faq details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); margin-bottom: 8px; }
+.faq details[open] { border-color: var(--coho-black); }
+.faq summary {
+  cursor: pointer; list-style: none; position: relative;
+  padding: 14px 48px 14px 16px; font-weight: 700; color: var(--coho-black);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  font-size: 1.5rem; line-height: 1; color: var(--coho-red); font-weight: 700;
+}
+.faq details[open] summary::after { content: "\2212"; } /* minus sign */
+.faq summary:hover { background: var(--light-grey); }
+.faq summary:focus-visible { outline: 3px solid var(--coho-black); outline-offset: 2px; }
+.faq-answer { padding: 4px 16px 14px; border-top: 1px solid var(--line); }
+.faq-answer ul { padding-left: 1.2em; }
+.faq-answer li { margin: 6px 0; }
+.faq-lead { font-size: 1.05rem; font-weight: 700; color: var(--coho-black); padding-left: 12px; border-left: 4px solid var(--coho-red); }
+.faq-warning { background: var(--light-grey); padding: 10px 14px; border-left: 4px solid var(--coho-black); }
+.faq-answer .prose table { margin: 8px 0; }
+
+.faq-contacts { margin-top: 44px; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 8px; }
+.contact-card { background: var(--light-grey); border-top: 4px solid var(--coho-red); padding: 14px 16px; }
+.contact-card p { margin: 6px 0 0; }
+.ask-section { margin-top: 44px; scroll-margin-top: 16px; }
+
+@media print {
+  .faq details { break-inside: avoid; }
+  .faq details:not([open]) > .faq-answer { display: block; }
+  .ask-section { display: none; }
+}
+
+/* ---------- IT support click-through (IT-support.md) ---------- */
+/* Works without JavaScript: each category panel shows when its #link is clicked */
+.it-step { display: none; scroll-margin-top: 16px; }
+.it-step:target { display: block; }
+.it-flow:has(.it-step:target) .it-chooser,
+.it-flow:has(.it-step:target) .urgent { display: none; }
+
+.urgent { max-width: 44rem; background: var(--coho-black); color: var(--white); padding: 14px 18px; border-left: 6px solid var(--coho-red); margin: 8px 0 28px; }
+.urgent p { margin: 4px 0; }
+.urgent a { color: var(--white); }
+.urgent-title { font-weight: 700; font-size: 1.05rem; }
+
+.steps { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0 0 18px; counter-reset: step; font-size: .85rem; }
+.steps li { counter-increment: step; display: flex; align-items: center; gap: 6px; color: var(--muted); padding-right: 10px; }
+.steps li::before {
+  content: counter(step); display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--line); font-weight: 700; color: var(--muted);
+}
+.steps li.is-current { color: var(--coho-black); font-weight: 700; }
+.steps li.is-current::before { background: var(--coho-red); border-color: var(--coho-red); color: var(--white); }
+.steps li.is-done::before { content: "\2713"; background: var(--coho-black); border-color: var(--coho-black); color: var(--white); }
+
+.it-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.it-card {
+  position: relative; display: flex; flex-direction: column; gap: 4px;
+  padding: 16px 44px 16px 16px; border: 1px solid var(--line); border-top: 4px solid var(--coho-black);
+  border-radius: var(--radius); text-decoration: none; color: var(--coho-black); background: var(--white);
+}
+.it-card:hover { border-color: var(--coho-black); border-top-color: var(--coho-red); color: var(--coho-black); }
+.it-card:focus-visible { outline: 3px solid var(--coho-black); outline-offset: 2px; }
+.it-card-title { font-weight: 700; font-size: 1.08rem; }
+.it-card-summary { font-size: .95rem; }
+.it-card-eg { font-size: .85rem; color: var(--muted); }
+.it-card-go { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 1.4rem; color: var(--coho-red); font-weight: 700; }
+.it-card-idea { max-width: 44rem; background: var(--light-grey); border-top-color: var(--coho-red); }
+
+.it-step-title { display: block; border: 0; padding: 0; margin: 4px 0 6px; font-size: 1.7rem; }
+.it-notice { background: var(--light-grey); border-left: 4px solid var(--coho-red); padding: 10px 14px; max-width: 44rem; }
+.it-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; align-items: start; }
+.it-panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 18px 12px; }
+.it-panel h3 { margin-top: 14px; }
+.checklist { list-style: none; padding: 0; margin: 0; }
+.checklist li { position: relative; padding-left: 28px; margin: 8px 0; }
+.checklist li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--coho-red); font-weight: 700; }
+.asks { padding-left: 1.3em; margin: 0; }
+.asks li { margin: 8px 0; }
+.opts { display: block; font-size: .85rem; color: var(--muted); }
+.it-submit { background: var(--light-grey); padding: 18px 20px; border-top: 4px solid var(--coho-red); margin: 8px 0 24px; }
+.it-submit p { margin: 6px 0 12px; }
+.it-next ol { padding-left: 1.3em; }
+
+@media print {
+  .it-step { display: block; break-before: page; }
+  .it-chooser, .urgent, .it-submit .button { display: none; }
+}
+
+/* ---------- Multi-form steps (e.g. new starter) ---------- */
+.form-num {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--coho-red); color: var(--white); font-weight: 700; font-size: .85rem;
+}
+.asks-form { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--coho-black); margin: 14px 0 4px; }
+.form-steps { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 10px; }
+.form-step { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--white); border: 1px solid var(--line); padding: 12px 14px; }
+.form-step-body { flex: 1 1 220px; display: flex; flex-direction: column; gap: 2px; }
+.form-step .button { margin-left: auto; }
